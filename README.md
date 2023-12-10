@@ -39,11 +39,11 @@
 
 <!-- EPISODE-2 -->
 
-<!-- git -->
-<!-- git init - initialize your git repository -->
-<!-- want to change master branch to main branch use  git branch -M main -->
-<!-- local git does not know what is remote so you need to configure "git remote add origin git@github.com:xyz/abc.git"  , this step is used only once -->
-<!-- now push to code to remote using "git push origin main" -->
+# git
+- git init - initialize your git repository
+- want to change master branch to main branch use  git branch -M main
+- local git does not know what is remote so you need to configure "git remote add origin git@github.com:xyz/abc.git"  , this step is used only once
+- now push to code to remote using "git push origin main"
 
 <!-- assignment -->
 <!-- git ssh -->
@@ -55,32 +55,32 @@ so that it should minified bundle  -->
 <!-- you need to do basically  -BUNDELLING,CODE SPLITTING,CHUNKING ,IMAGE OPTIMIZE -->
 <!-- you to need to do lot of processing in to your local before pushing it to the production -->
 
-<!-- NPM -->
-<!-- npm does not stands for node package manager it is just a universal package manager -->
-<!-- standard repository for all the packages -->
-<!-- all the libraries and utilities comes from npm -->
-<!-- npm init utitlitly will walk you through creating package.json file-->
-<!-- test case : jest  -->
-<!-- package.json is the configuration for npm -->
-<!-- this packages is also known as dependencies -->
-<!-- lets starts installing dependencies  . The most imposrtant package in our project : BUNDELLER -->
-<!-- What is bundller: our whole code needs to bundle together,minified,cached,cpmpressed,cleaned before it sent for preduction -->
-<!-- what is webpack,parcel,weet  : these are bundler-->
-<!-- bundler: bundles your project , it packages your app -->
-<!-- when we use create react app , uses webpack bundler and babel behind the scene -->
-<!-- In our project we are using PARCEL (we can also use webpack or weet ) -->
-<!-- parcel is one of the best library we are going to use in our app , it will ignite our app ,  -->
-<!-- parcel comes as a node package we will install that package , now we have npm so we install dependencies -->
-<!-- command npm install -D parcel -->
-<!-- why we give -D (flag)  -->
-<!-- -D we use parcel as a dev dependencies -->
-<!-- there are two types of dependecies or packages we install  -->
-<!-- 1- Dev dependecies : required in development phase -->
-<!-- 2- Normal dependencies : used in production also  -->
-<!-- parcel is a bundler ,we use in development phase so we will install parcel as a dev dependencies -->
-<!-- parcel gives muscle to our app and it is a beast after installing parcel NODE_MODULELS and package.lock.json files updated -->
-<!-- package.lock = keeps the approx version and it is configuration of npm it keeps the track of what version of that version is installed into out system  -->
-<!-- package.lock.json = locks the version and keeps the  track keeps the EXACT version of that package -->
+# NPM
+- npm does not stands for node package manager it is just a universal package manager
+- standard repository for all the packages
+- all the libraries and utilities comes from npm
+- npm init utitlitly will walk you through creating package.json file
+- test case : jest 
+- package.json is the configuration for npm
+- this packages is also known as dependencies
+- lets starts installing dependencies  . The most imposrtant package in our project : BUNDELLER
+- What is bundller: our whole code needs to bundle together,minified,cached,cpmpressed,cleaned before it sent for preduction
+- what is webpack,parcel,weet  : these are bundler
+- bundler: bundles your project , it packages your app
+- when we use create react app , uses webpack bundler and babel behind the scene
+- In our project we are using PARCEL (we can also use webpack or weet )
+- parcel is one of the best library we are going to use in our app , it will ignite our app , 
+- parcel comes as a node package we will install that package , now we have npm so we install dependencies
+- command npm install -D parcel
+- why we give -D (flag) 
+- -D we use parcel as a dev dependencies
+- there are two types of dependecies or packages we install 
+- 1- Dev dependecies : required in development phase
+- 2- Normal dependencies : used in production also 
+- parcel is a bundler ,we use in development phase so we will install parcel as a dev dependencies
+- parcel gives muscle to our app and it is a beast after installing parcel NODE_MODULELS and package.lock.json files updated
+- package.lock = keeps the approx version and it is configuration of npm it keeps the track of what version of that version is installed into out system 
+- package.lock.json = locks the version and keeps the  track keeps the EXACT version of that package
 
 
 <!-- NODE_MODULES -->
