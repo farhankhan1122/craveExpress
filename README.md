@@ -31,13 +31,13 @@
 </body>
 </html>
 
-<!-- react can be only applied on small portion of our page so we called library -->
-<!-- like react can only applied to header only, footer only ,sidenav only -->
+- react can be only applied on small portion of our page so we called library
+- like react can only applied to header only, footer only ,sidenav only
 
 
 
 
-<!-- EPISODE-2 -->
+# EPISODE-2
 
 # git
 - git init - initialize your git repository
@@ -50,10 +50,10 @@
 <!-- cross origin -->
 
 
-<!-- to make your app ready to go in production you need to do lot of processing in your local like "optimize images,remove console ,remove comments"
-so that it should minified bundle  -->
-<!-- you need to do basically  -BUNDELLING,CODE SPLITTING,CHUNKING ,IMAGE OPTIMIZE -->
-<!-- you to need to do lot of processing in to your local before pushing it to the production -->
+- to make your app ready to go in production you need to do lot of processing in your local like "optimize images,remove console ,remove comments"
+so that it should minified bundle 
+- you need to do basically  -BUNDELLING,CODE SPLITTING,CHUNKING ,IMAGE OPTIMIZE
+- you to need to do lot of processing in to your local before pushing it to the production
 
 # NPM
 - npm does not stands for node package manager it is just a universal package manager
@@ -65,10 +65,10 @@ so that it should minified bundle  -->
 - this packages is also known as dependencies
 - lets starts installing dependencies  . The most imposrtant package in our project : BUNDELLER
 - What is bundller: our whole code needs to bundle together,minified,cached,cpmpressed,cleaned before it sent for preduction
-- what is webpack,parcel,weet  : these are bundler
+- what is webpack,parcel,vite  : these are bundler
 - bundler: bundles your project , it packages your app
 - when we use create react app , uses webpack bundler and babel behind the scene
-- In our project we are using PARCEL (we can also use webpack or weet )
+- In our project we are using PARCEL (we can also use webpack or vite )
 - parcel is one of the best library we are going to use in our app , it will ignite our app , 
 - parcel comes as a node package we will install that package , now we have npm so we install dependencies
 - command npm install -D parcel
@@ -83,62 +83,60 @@ so that it should minified bundle  -->
 - package.lock.json = locks the version and keeps the  track keeps the EXACT version of that package
 
 
-<!-- NODE_MODULES -->
-<!-- node_modules fetches all the transitive dependencies into our system  -->
-<!-- kind of a database where all out packages exist-->
-<!-- our project needs parcel dependencies but parcel having its own dependencies
+# NODE_MODULES
+- node_modules fetches all the transitive dependencies into our system 
+- kind of a database where all out packages exist
+- our project needs parcel dependencies but parcel having its own dependencies
     and  those dependencies have their own dependencies this is known as "TRANSITIVE DEPENDENCIES"
-which are in the node_modules -->
-<!-- in our project how many package.json do we have -->
-<!-- every dependencies have their own package.json -->
+- which are in the node_modules
+- in our project how many package.json do we have
+- every dependencies have their own package.json
 
 
 
-<!-- .gitignore file -->
-<!-- the size of node_modules is huge we cant put this on git it is useless 
-so any file you dont want to put onto git just put it inside .gitignore file
-/node_module -->
-<!-- package.json and package.lock.json is imp to put onto git and using this we can 
-recreate the node_module (npm install)-->
+# .gitignore file
+- the size of node_modules is huge we cant put this on git it is useless 
+- so any file you dont want to put onto git just put it inside .gitignore file
+/node_module
+- package.json and package.lock.json is imp to put onto git and using this we can 
+- recreate the node_module (npm install)
 
 
 
-<!-- we got parcel as a dev dependencies in  package.json because package.json keep track of all the packages and dependencies  -->
-<!-- "parcel": ^2.8.3-->
-<!-- ^ = Caret : suppose a new minor version of parcel is released 2.8.4 what will happen if you put this caret before version
-parcel will automatically upgraded to 2.8.4 -->
-<!-- 2.8.4 = is minor upgrade -->
-<!-- 3.8.3 = is a major upgrade -->
-<!-- ~ Tilde = if you put tilde suppose 3.0.0 major released so tilda upgrade the major version automatically -->
-<!-- its ok to upgrade the minor version and not major version   -->
+- we got parcel as a dev dependencies in  package.json because package.json keep track of all the packages  and dependencies 
+- "parcel": ^2.8.3
+- ^ = Caret : suppose a new minor version of parcel is released 2.8.4 what will happen if you put this caret - before version
+- parcel will automatically upgraded to 2.8.4
+- 2.8.4 = is minor upgrade
+- 3.8.3 = is a major upgrade
+- ~ Tilde = if you put tilde suppose 3.0.0 major released so tilda upgrade the major version automatically
+- its ok to upgrade the minor version and not major version  
 
-<!-- RECAP HALF EPISODE 2 PART 1-->
-<!-- GIT INIT (package.json created)(maintain versions of dep it can Caret or Tilde)
-               (package.lock.json)(all the transitive or all the dep that our proj will ever need)
-     setup remote repository
-     install npm
-     if your delete node_modules you can recreate node_modules using npm install
-    -->
-
-
-
-
-    <!-- EPISODE 2 PART 2 -->
-    <!-- Command npx parcel index.html (the source file)-->
-    <!-- now we basically building our app using parcel -->
-    building development build and host it to the localhost:1234
+# RECAP HALF EPISODE 2 PART 1
+- GIT INIT (package.json created)(maintain versions of dep it can Caret or Tilde)
+  (package.lock.json)(all the transitive or all the dep that our proj will ever need)
+- setup remote repository
+- install npm
+- if your delete node_modules you can recreate node_modules using npm install
+   
 
 
 
-    parcel has hosted with a port localhost:1234
 
-    Q-what's this command : npm parcel index.html
-    A- npx just like npm 
-    npm means we are calling the command of npm or if you want to install the packages  then use npm
-        To execute the package then we use npx
-    npx means executing a package
+# EPISODE 2 PART 2
+- Command npx parcel index.html (the source file)
+- now we basically building our app using parcel
+- building development build and host it to the localhost:1234
 
+- parcel has hosted with a port localhost:1234
+- Q-what's this command : npm parcel index.html
+- A- npx just like npm 
+- npm means we are calling the command of npm or if you want to install the packages  then use npm
+- To execute the package then we use npx
+- npx means executing a package
 - for build - npx parcel build index.html
+
+
 # dist
 - after bulding only 3 files are bundled inside dist folder 
 - after build build goes into the dist folder
@@ -158,30 +156,29 @@ parcel will automatically upgraded to 2.8.4 -->
 
 
 
-    1- (first way)we learn first way to inject REACT is using CDN links and this is not the good way to inject react(not a preferred way to bring react or react dom in our project)
-    because its the costly operation (we dont make another network to get react i.e cdn links) because we already have node_modules
+- 1- (first way)we learn first way to inject REACT is using CDN links and this is not the good way toinject react(not a preferred way to bring react or react dom in our project)
+because its the costly operation (we dont make another network to get react i.e cdn links) because wealready have node_modules
+- https://unpkg.com/react@18/umd/react.development.js
+- it fetches from unpkg and another thing is react18 is there tommorow some other comes
+- what happen is we need to keep changing url this is not the good way .
 
-    https://unpkg.com/react@18/umd/react.development.js
-    it fetches from unpkg and another thing is react18 is there tommorow some other comes
-    what happen is we need to keep changing url this is not the good way .
 
+- 2-(second way)NOW we INSTALL REACT as a package to our code
+- use command [npm install react]
+- note we not giving -D flag here as we give in npx -D parcel
+- why??
+- because need react as normal dependency not a dev dependency
+- after installing react we got react dependencies in package.json ,package.lock.json and also in node_modules
 
-    2-(second way)NOW we INSTALL REACT as a package to our code
-    use command [npm install react]
-    note we not giving -D flag here as we give in npx -D parcel
-    why??
-    because need react as normal dependency not a dev dependency
-    after installing react we got react dependencies in package.json ,package.lock.json and also in node_modules
+- INSTALL REACT DOM also
+- npm install react-dom 
+- npm i react-dom (is a short form)
 
-    INSTALL REACT DOM also
-    npm install react-dom 
-    npm i react-dom (is a short form)
+- after installing react and react-dom in node_modules so react code need to import from node_modules 
+- import React from 'react'
+- 'react' refers to react inside the node_modules
 
-    after installing react and react-dom in node_modules so react code need to import from node_modules 
-    import React from 'react'
-    'react' refers to react inside the node_modules
-
-    need to add type="module" in script file to tell that it is not the normal js file'
+- need to add type="module" in script file to tell that it is not the normal js file'
 
 # Parcel
 - Dev Build
