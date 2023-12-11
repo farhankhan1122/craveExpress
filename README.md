@@ -134,7 +134,11 @@ so that it should minified bundle
 - npm means we are calling the command of npm or if you want to install the packages  then use npm
 - To execute the package then we use npx
 - npx means executing a package
-- for build - npx parcel build index.html
+- for start - npx parcel index.html (this will create a dev build)  -> npm run start
+- for build - npx parcel build index.html   -> npm run build
+- create scripts for start and build        
+- "start": "parcel index.html" 
+- "build": "parcel build index.html"
 
 
 # dist
@@ -200,4 +204,7 @@ because its the costly operation (we dont make another network to get react i.e 
 - Different Build Dev and Production Bundles (prod build takes a little more time)- less optimization on dev than prod
 - https - we dont need https on development but if we want to test something which only works on SSL(HTTPS)
 - READ PARCEL DOCUMENTATION
+
+
+
     

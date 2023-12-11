@@ -5,7 +5,7 @@ import ReactDOM from "react-dom/client"
 const heading = React.createElement(   //creating a javasript Object or react element
 'h1',                                             //fist argument - what element you want to create
 {id: "heading",xyz: "abc"},  //attributes props   //second argument - give attributes
-"Hello world")   //child props                    //third argument - children of the first argument
+"Hello world😎")   //child props                    //third argument - children of the first argument
 
 console.log(heading)  // Object
 // this heading  is react element(object)
@@ -19,6 +19,8 @@ console.log(heading)  // Object
 
 const root = ReactDOM.createRoot(document.getElementById("root"))
 root.render(heading)
+
+// React.createElement => Object => HTMLElement(rendered)
 
 
 // root.render to take this object [create that h1 or convert to h1] tag which the browser understand and put that inside root element
