@@ -3,10 +3,9 @@ import ReactDOM from "react-dom/client"
 
 // ***React.createElement => ReactElement- JS Object => HTMLElement(render)
 
-// this empty object  {} is the place where you give attribute to your tag
 const heading = React.createElement(   //creating a javasript Object or react element
-'h1',                                             //fist argument - what element you want to create
-{id: "heading",xyz: "abc"},  //attributes props   //second argument - give attributes
+'h1',                                             
+{id: "heading",xyz: "abc"},  //attributes props  
 "Hello world😎")   //child props                    //third argument - children of the first argument
 
 
@@ -14,9 +13,9 @@ const heading = React.createElement(   //creating a javasript Object or react el
 
 // ****JSX => React.createElement => ReactElement- JS Object => HTMLElement(render)
 // BABEL converts JSX => React.createElement
-const jsxHeading = <img src="" />
+const jsxHeading = <p>hello </p>
 // its hard to read not user friendly but this is core of react element
-// then JSX created - js syntax esier to create react elements
+// then JSX created - js syntax easier to create react elements
 
 console.log(heading)  // Object
 console.log(jsxHeading);
@@ -29,8 +28,8 @@ console.log(jsxHeading);
 
 
 
-const root = ReactDOM.createRoot(document.getElementById("root"))
-root.render(jsxHeading)
+// const root = ReactDOM.createRoot(document.getElementById("root"))
+// root.render(jsxHeading)
 
 // React.createElement => Object => HTMLElement(rendered)
 
@@ -81,3 +80,44 @@ root.render(jsxHeading)
 //     const root2 = ReactDOM.createRoot(document.getElementById("root2"))
 //     root2.render(parent)
     // use array to create siblings
+
+    const fn = () => {
+        return true
+    }
+    // or
+    const fnS = () => true
+
+
+    // React functional component
+    const HeadingComponent = () => {
+        return <h1>inner component</h1>
+    }
+    // component composition - composition one component into other
+    const number = 1000
+    // react element
+    const element = (
+        <h2>react element</h2>
+    );
+    const HeadingComponent2 = () =>
+    (
+        <div>
+            {number}
+            {element}
+            <HeadingComponent />
+            {/* babel is doing it , babel searches <Xyz /> knows functional component */}
+            <h1>Component</h1>
+        </div>
+    )
+
+    const newRoot = ReactDOM.createRoot(document.getElementById("root-new"))
+    newRoot.render(<HeadingComponent2 />)
+
+    // you can also use normal js function instead of arrow function
+
+    // const NormalJsFn = function() {
+    //     return (
+    //         <h1>inner component</h1>
+    //     )
+    // }
+
+    //  you can put any js code or expression inside {} which is inside JSX 
