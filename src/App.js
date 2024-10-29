@@ -4,6 +4,7 @@ import {Header} from "./components/Header.js"
 // import { Component } from 'react';
 import Body from "./components/Body"
 import Footer from "./components/Footer";
+import UseRefHook from './components/useRefHook.js';
 
 
 const AppLayout = () => {
@@ -12,6 +13,8 @@ const AppLayout = () => {
             <Header />
             <Body></Body>
             {Footer()}
+            <UseRefHook />
+
         </div>
     )
 }

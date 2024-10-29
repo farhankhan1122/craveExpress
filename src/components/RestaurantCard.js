@@ -1,4 +1,6 @@
 import React from "react";
+import { LOGO_URL } from "../utils.js/constants";
+import { CDN_URL } from "../utils.js/constants";
 
 const RestaurantCard = (props) => {
     // some dev destructuring on the fly instead of props in ()
@@ -8,26 +10,26 @@ const RestaurantCard = (props) => {
     // using zomato api
     // lets clean our code i.e destructure data because cardsData.info is repeating again and again
     const {cardsData} = props
-    const {name, cuisine, rating, cft, image} = cardsData?.info
-    const {deliveryTime} = cardsData?.order
+    const {name, cuisines, avgRating, costForTwo, cloudinaryImageId} = cardsData?.info
+    // const {deliveryTime} = cardsData?.order
     // this is ?. is optional chaining
     return (
         <div className="res-card">
             <div className="res-card-image">
-            <img src={image.url} alt="" />
+            <img src={CDN_URL + cloudinaryImageId} alt="" />
             </div>
             <div className="res-card-details">
                 <h3 className="res-card-name">{name}</h3>
-                <p className="res-card-cuisines">{cuisine[0].name}</p>
+                <p className="res-card-cuisines">{cuisines[0].name}</p>
                 <div className="res-card-subdetails">
                     <div className="star-rating">
                         <span>&#9733;</span>
-                        <span>{rating.rating_text}</span>
+                        <span>{avgRating}</span>
                     </div>
                     <span>.</span>
-                    <p>{deliveryTime}</p>
+                    {/* <p>{deliveryTime}</p> */}
                     <span>.</span>
-                    <p>{cft.text}</p>
+                    <p>{costForTwo}</p>
                 </div>
             </div>
         </div>
