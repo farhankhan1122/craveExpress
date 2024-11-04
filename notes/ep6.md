@@ -76,7 +76,7 @@ this is happening because of diff algorithm , reconciliation process
 - why react fast ?
 - react has the react fibre(react new reconciliation algorithms) which finds the difference between the two virtula dom and only update that change
 
-# CORS issue
+# CORS issue (6.2)
 - for our laptop we use chrome extension i.e. Cors plugin
 - but somebody using that website they might not having cors plugin 
 - but for production so that other dont get stuck in cors issue we use a website CorsProxy.io just paste that corsproxy.io link before the api string
