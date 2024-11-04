@@ -11,23 +11,23 @@
 # React router dom
 - npm i react-router-dom
 - import { createBrowserRouter } from 'react-router-dom';
-const appRouter = createBrowserRouter([
-    {
-        path: "/",
-        element: <AppLayout />
-        errorElement: <Error />
-    },
-    {
-        path: "/about",
-        element: <About />
-    }
-])
-now need to provide it to render
-import { RouterProvider } from 'react-router-dom';
-actually provides this routing configuration to our app
-firstProject.render(<RouterProvider router={appRouter} />)
+-const appRouter = createBrowserRouter([
+-    {
+ -       path: "/",
+ -       element: <AppLayout />
+ -       errorElement: <Error />
+  -  },
+  -  {
+  -      path: "/about",
+  -      element: <About />
+ -   }
+-])
+-now need to provide it to render
+-import { RouterProvider } from 'react-router-dom';
+-actually provides this routing configuration to our app
+-firstProject.render(<RouterProvider router={appRouter} />)
 
-- there have been other routers but reconmmended only createBrowser router
+- there have been other routers but reconmmended only -createBrowser router
 - Rafce is short cut to create a functional component
 - react dom router page giving 404 page , need to add custom 404 page
 - react router dom gives us an access of hook (useRouteError), so we can use detailed error msg 
