@@ -2,6 +2,9 @@ import React from "react";
 import RestaurantCard from "./RestaurantCard";
 // import cardsList from "../utils.js/mockData";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { resMockData } from "../utils.js/restaurantsConstant";
+import Shimmer from "./shimmer";
 
 const Body = () => {
   // local state variable - super powerful variable  scope is local
@@ -13,25 +16,33 @@ const Body = () => {
 
   useEffect(() => {
     fetchData();
+    // console.log(resMockData,"resMockData");
   }, []);
 
   const fetchData = async () => {
+    // IMPORTANT
+    // just add chrome cors extension into your browser to work this api
     const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=27.5803473&lng=80.6794592&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.8317525&lng=80.9225668&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
     console.log(json, "json called");
     setListOfReastauants(
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      // resMockData?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     setFilteredReastauants(
-        json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-      );
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      // resMockData?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
     console.log(listOfRestaurants, "listOfRestaurantsss");
   };
 
   // normal js variable
   // scope is local
+  if (listOfRestaurants.length === 0) {
+    return <Shimmer />
+  }
 
   return (
     <div className="body">
@@ -55,10 +66,10 @@ const Body = () => {
           {/* whenever state variables update , react triggers a reconciliation cycle(re-render the conponent) */}
           <button
             onClick={() => {
-              const filteredRestaurants = listOfRestaurants.filter((res) => 
+              const filteredRestaurants = listOfRestaurants.filter((res) =>
                 res.info.name.toLowerCase().includes(searchText.toLowerCase())
-              )
-              setFilteredReastauants(filteredRestaurants)
+              );
+              setFilteredReastauants(filteredRestaurants);
             }}
             className="submit_search"
             type="button"
@@ -116,7 +127,12 @@ const Body = () => {
         {/* optimize code using map filter reduce */}
 
         {filteredRestaurants?.map((restaurant) => (
-          <RestaurantCard key={restaurant.info.id} cardsData={restaurant} />
+          <Link
+            key={restaurant.info.id}
+            to={"/restaurants/" + restaurant.info.id}
+          >
+            <RestaurantCard cardsData={restaurant} />
+          </Link>
         ))}
         {/* map for each restaurant returning a piece of jsx */}
       </div>
