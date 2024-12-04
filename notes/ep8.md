@@ -73,3 +73,19 @@
 - render once again with updated value
 - react updates DOM
 - Now ComponentDidUpdate called
+
+
+- why do we need unmount a component
+- because if use setInterval or setTimeout there will be new setInterval created when mount component without unmounting
+- interval adding in console 
+- so you need to clear the interval (IMPORTANT)
+- leave a not below setInterval in comment to clear the interval in ComponentWillUnmount
+- how we can reference interval in componentWillUnmount 
+- use this.timer = setInterval()
+- and then clearInterval(this.timer)
+
+
+
+- unmounting in functional component refer to user.js
+
+
