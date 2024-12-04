@@ -174,3 +174,23 @@ h1,h2,h3,h4,h5,h6,p {
     align-items: center;
     gap: 6px;
 }
+
+
+/* for team cards in about page */
+.user-card {
+    padding: 20px;
+    border-radius: 8px;
+    border: 2px solid black;
+    margin-bottom: 10px;
+    margin-left: 30px;
+    margin-right: 30px;
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+}
+.card_avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid black;
+}
