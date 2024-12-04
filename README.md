@@ -1,3 +1,7 @@
+<!-- TO DISPLAY DATA OF SWIGGY API  -->
+<!-- JUST ADD CORS EXTENSION -->
+<!-- allow cors -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
