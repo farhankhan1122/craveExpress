@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
+import React, { lazy } from 'react';
 import ReactDOM from 'react-dom/client';
+
 import {Header} from "./components/Header.js"
 // import { Component } from 'react';
 import Body from "./components/Body"
@@ -10,6 +12,17 @@ import About from './components/About.js';
 import Contact from './components/Contact.js';
 import Error from './components/Error.js';
 import RestaurantMenu from './components/RestaurantMenu.js';
+// import Grocery from './components/Grocery.js';
+
+// Chunking
+// Code splitting
+// Dynamic Bundling
+// Lazy loading
+// On demand loading
+// dynamic import
+
+const Grocery = lazy(() => import("./components/Grocery.js"))
+// this is import is basically a function
 
 
 const AppLayout = () => {
@@ -46,6 +59,11 @@ const appRouter = createBrowserRouter([
             {
                 path: "/contact",
                 element: <Contact />
+            }
+            ,
+            {
+                path: "/grocery",
+                element: <Suspense fallback={<h1>Loading...</h1>} ><Grocery /></Suspense>
             }
             ,
             {

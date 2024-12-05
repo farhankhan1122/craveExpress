@@ -5,6 +5,8 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { resMockData } from "../utils.js/restaurantsConstant";
 import Shimmer from "./shimmer";
+import useBody from "../utils.js/customHooks/useBody";
+import useOnlineStatus from "../utils.js/customHooks/useOnlineStatus";
 
 const Body = () => {
   // local state variable - super powerful variable  scope is local
@@ -12,43 +14,30 @@ const Body = () => {
   const [filteredRestaurants, setFilteredReastauants] = useState([]);
   const [searchText, setSearchText] = useState("");
 
-  console.log("body rendered");
+  // custom hooks
+  const restaurantsListData = useBody();
+  const onlineStatus = useOnlineStatus();
 
   useEffect(() => {
-    fetchData();
-    // console.log(resMockData,"resMockData");
-  }, []);
+    setListOfReastauants(restaurantsListData);
+    setFilteredReastauants(restaurantsListData);
+  }, [restaurantsListData]);
 
-  const fetchData = async () => {
-    // IMPORTANT
-    // just add chrome cors extension into your browser to work this api
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.8317525&lng=80.9225668&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+  if (onlineStatus === false)
+    return (
+      <h1>
+        Looks like you're offline!! Please check your internet connection.{" "}
+      </h1>
     );
-    const json = await data.json();
-    console.log(json, "json called");
-    setListOfReastauants(
-      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-      // resMockData?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
-    setFilteredReastauants(
-      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-      // resMockData?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
-    console.log(listOfRestaurants, "listOfRestaurantsss");
-  };
 
   // normal js variable
   // scope is local
   if (listOfRestaurants.length === 0) {
-    return <Shimmer />
+    return <Shimmer />;
   }
 
   return (
     <div className="body">
-      {/* function handleClick() { 
-                elert("hello")
-            } */}
       <div className="filter" style={{ display: "flex" }}>
         <div className="search">
           <input

@@ -58,7 +58,7 @@ class UserClass extends React.Component {
     
     componentWillUnmount() {
         clearInterval(this.timer)
-
+        // this is imp to clear otherwise app will struck
     }
 
     render() {

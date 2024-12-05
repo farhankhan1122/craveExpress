@@ -2,7 +2,10 @@ import React from "react";
 import { LOGO_URL } from "../utils.js/constants";  //because named export
 import { Link } from "react-router-dom";
 // import { ReactDOM } from "react-dom/client";
+import useOnlineStatus from "../utils.js/customHooks/useOnlineStatus";
 export const Header = () => {
+
+    const onlineStatus = useOnlineStatus()
     return (
         <div className="header">
             <div className="logo-container">
@@ -11,6 +14,9 @@ export const Header = () => {
             <div className="nav-items">
                 <ul>
                     <li>
+                        online status: {onlineStatus ? "✅" : "🔴"}
+                    </li>
+                    <li>
                         <Link to="/">Home</Link>
                     </li>
                     <li>
@@ -18,6 +24,9 @@ export const Header = () => {
                     </li>
                     <li>
                         <Link to={"/contact"}>Contact Us</Link>
+                    </li>
+                    <li>
+                        <Link to={"/grocery"}>Grocery store</Link>
                     </li>
                     <li>Cart</li>
                 </ul>
