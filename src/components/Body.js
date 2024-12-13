@@ -1,12 +1,13 @@
 import React from "react";
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
 // import cardsList from "../utils.js/mockData";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { resMockData } from "../utils.js/restaurantsConstant";
 import Shimmer from "./shimmer";
 import useBody from "../utils.js/customHooks/useBody";
 import useOnlineStatus from "../utils.js/customHooks/useOnlineStatus";
+import UserContext from "../utils.js/userContext";
 
 const Body = () => {
   // local state variable - super powerful variable  scope is local
@@ -14,9 +15,13 @@ const Body = () => {
   const [filteredRestaurants, setFilteredReastauants] = useState([]);
   const [searchText, setSearchText] = useState("");
 
+  const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
+
   // custom hooks
   const restaurantsListData = useBody();
   const onlineStatus = useOnlineStatus();
+
+  const {loggedInUser, setUserName} = useContext(UserContext)
 
   useEffect(() => {
     setListOfReastauants(restaurantsListData);
@@ -32,7 +37,9 @@ const Body = () => {
 
   // normal js variable
   // scope is local
-  if (listOfRestaurants.length === 0) {
+  console.log(listOfRestaurants,"listOfRestaurants");
+  
+  if (listOfRestaurants?.length === 0) {
     return <Shimmer />;
   }
 
@@ -73,11 +80,14 @@ const Body = () => {
               (res) => res.info.rating.rating_text > 4
             );
             setListOfReastauants(filteredList);
-            console.log(listOfRestaurants);
+            console.log(listOfRestaurants,"listofres");
           }}
         >
           Top Rated Restaurants
         </button>
+
+        <label>User Name</label>
+        <input value={loggedInUser} className="border border-black" onChange={(e) => setUserName(e.target.value) } />
       </div>
       <div className="res-container">
         {/* <RestaurantCard name="Meghana Foods" cuisine="Biryani, Paratha, Chinese" rating="4.3" />
@@ -116,11 +126,18 @@ const Body = () => {
         {/* optimize code using map filter reduce */}
 
         {filteredRestaurants?.map((restaurant) => (
-          <Link
+          <Link className="res-card-link"
             key={restaurant.info.id}
             to={"/restaurants/" + restaurant.info.id}
           >
-            <RestaurantCard cardsData={restaurant} />
+            
+            
+            {/* for higher order function that will give us label of promoted if card is promoted */}
+            {restaurant?.info?.isOpen ? (
+              <RestaurantCardPromoted cardsData={restaurant} />
+            ) : (
+              <RestaurantCard cardsData={restaurant} />
+            )}
           </Link>
         ))}
         {/* map for each restaurant returning a piece of jsx */}

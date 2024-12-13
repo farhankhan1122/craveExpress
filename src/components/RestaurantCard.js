@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { LOGO_URL } from "../utils.js/constants";
 import { CDN_URL } from "../utils.js/constants";
+import UserContext from "../utils.js/userContext";
 
 const RestaurantCard = (props) => {
+    const {loggedInUser} = useContext(UserContext)
     // some dev destructuring on the fly instead of props in ()
     // (props) => ({name, cuisine})
     // const { name, cuisine} = props
@@ -30,10 +32,27 @@ const RestaurantCard = (props) => {
                     {/* <p>{deliveryTime}</p> */}
                     <span>.</span>
                     <p>{costForTwo}</p>
+                    <p>{loggedInUser}</p>
                 </div>
             </div>
         </div>
     )
+
 }
 
+// Higher Order Component
+
+// input - RestaurantCard => RestaurantCardPromoted
+
+// returning functional component
+export const withPromotedLabel = (RestaurantCard) => {
+    return (props) => {
+        return (
+            <div className="relative overflow-hidden">
+                <label className="absolute rounded-sm text-white text-[13px] px-[5px] bg-green-500" >Now Open</label>
+                <RestaurantCard {...props} />
+            </div>
+        )
+    }
+}
 export default RestaurantCard;
