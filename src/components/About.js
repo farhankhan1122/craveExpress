@@ -1,24 +1,30 @@
 import User from "../components/User";
 import UserClass from "../components/UserClass";
 import { Component } from "react";
+import UserContext from "../utils.js/userContext";
 
 class About extends Component {
   constructor(props) {
     super(props);
-    console.log("Parent Constructor");
+    // console.log("Parent Constructor");
   }
 
   componentDidMount() {
-    console.log("Parent component did mount");
+    // console.log("Parent component did mount");
   }
   render() {
-    console.log("Parent Render");
+    // console.log("Parent Render");
     return (
       <div>
+        <div>
+          <UserContext.Consumer>
+            {({loggedInUser}) => <h1>{loggedInUser}</h1>}
+          </UserContext.Consumer>
+        </div>
         <h1 style={{ marginBottom: "20px" }}>About class component</h1>
         {/* sending as an argument */}
-        {/* <User name={"Farhan kk (functional c)"} /> */}
-        <UserClass name={"Farhan (class based)"} location={"delhi"} />
+        <User name={"Farhan kk (functional c)"} />
+        {/* <UserClass name={"Farhan (class based)"} location={"delhi"} /> */}
         {/* <UserClass name={"Elon (class based)"} location={"US"} /> */}
         {/* all props are passed over here is combined in one object and can be access using this obj */}
       </div>

@@ -1,26 +1,16 @@
-import React, { useState, useEffect } from "react";
-import { MENU_URL } from "../utils.js/constants";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import Shimmer from "./shimmer";
+import useRestaurantMenu from "../utils.js/customHooks/useRestaurantMenu";
+import RestaurantCategory from "./RestaurantCategory";
 
 const RestaurantMenu = () => {
-  const [resInfo, setResInfo] = useState(null);
   const { redId } = useParams();
-  console.log(redId, "redId");
+  const resInfo = useRestaurantMenu(redId);
+  const [ showIndex , setShowIndex ] = useState(null)
+  console.log(resInfo, "resInfo");
 
-  useEffect(() => {
-    fetchMenu();
-  }, []);
-
-  const fetchMenu = async () => {
-    const data = await fetch(
-      MENU_URL + redId + "&catalog_qa=undefined&submitAction=ENTER"
-    );
-    const json = await data.json();
-    console.log(json, "json");
-    setResInfo(json.data);
-  };
-  if (resInfo === null) return <Shimmer/>;
+  if (resInfo === null) return <Shimmer />;
   const {
     name,
     cuisines,
@@ -31,14 +21,25 @@ const RestaurantMenu = () => {
     sla,
   } = resInfo?.cards[2]?.card?.card?.info;
   const { itemCards } =
-    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
-  console.log(itemCards);
+    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
+  console.log(resInfo, "resInfo");
+
+  const categories =
+    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+      (c) =>
+        c.card?.card?.["@type"] ===
+        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+    );
+  console.log(categories, "categories");
+
   return (
     <div className="menu container">
-      <h1 style={{marginLeft: "16px"}}>{name}</h1>
+      <h1 className="ml-[16px] font-bold text-[28px] tracking-[-0.4px] text-textcolor">
+        {name}
+      </h1>
       <div className="res_menu_pg_tt">
         <div className="res_menu_pg_ttot">
-          <div className="addssd">
+          <div className="flex items-center gap-[6px] font-[700] text-[16px] tracking-[-0.3px] text-textcolor">
             <svg
               width="20"
               height="20"
@@ -79,7 +80,6 @@ const RestaurantMenu = () => {
           <div>{sla.slaString}</div>
         </div>
       </div>
-      <h3>Menu</h3>
       {/* <ul>
         {itemCards.map((item) => (
           <li key={item.card.info.id}>
@@ -87,6 +87,19 @@ const RestaurantMenu = () => {
           </li>
         ))}
       </ul> */}
+
+      <div className="font-bold text-[20px] flex justify-center my-[20px]">
+        Menu
+      </div>
+      {/* Restaurant categories Accordion */}
+      {/* below component is controlled */}
+      {categories.map((category, index) => {
+        return <RestaurantCategory 
+        key={category?.card?.card.title} 
+        data={category?.card?.card}
+        showItem={index === showIndex ? true : false} 
+        setShowIndex={() => setShowIndex(index)}/>;
+      })}
     </div>
   );
 };

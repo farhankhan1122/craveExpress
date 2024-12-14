@@ -1,7 +1,7 @@
 // lets first make a functional component and then change it to class component
 // normal js function
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 // FUNCTIONAL COMPONENT = its a function that returns some piece of JSX
 const User = (props) => {
@@ -9,6 +9,24 @@ const User = (props) => {
     // you can also destructre props
     // const User = ({ name })
     // getting name as an parameter
+
+    useEffect(() => {
+      // API CALL
+      const timer = setInterval(()=> {
+        console.log("op");
+      },1000);
+
+      // UNMOUNTING
+      console.log("useEffect");
+      
+      return () => {
+        clearInterval(timer)
+      console.log("useEffect return");
+      };
+      
+    }, [])
+    console.log("render");
+    
   return (
     <div className="user-card">
         <h1>count = {count}</h1>

@@ -46,7 +46,19 @@ class UserClass extends React.Component {
         this.setState({
             userInfo: json
         })
+
+        this.timer = setInterval(() => {
+            console.log("ooop")
+        }, 1000)
         
+    }
+    
+    componentDidUpdate() {
+    }
+    
+    componentWillUnmount() {
+        clearInterval(this.timer)
+        // this is imp to clear otherwise app will struck
     }
 
     render() {
@@ -81,3 +93,23 @@ class UserClass extends React.Component {
 }
 
 export default UserClass;
+
+
+
+/**
+ * ----  MOUNTING  -----
+ * 
+ * Constructor (dummy)
+ * Render (dummy)
+ *       <HTML Dummy />
+ * ComponentDidMount
+ *       <API Call>
+ *       <this.setState  => State variable is updated
+ * 
+ * -------- UPDATING ------
+ * 
+ *       render (API data)
+ *       <HTML (NEW api data>)
+ * component Did Update
+ */
+
