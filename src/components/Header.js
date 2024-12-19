@@ -4,14 +4,23 @@ import { Link } from "react-router-dom";
 // import { ReactDOM } from "react-dom/client";
 import useOnlineStatus from "../utils.js/customHooks/useOnlineStatus";
 import UserContext from "../utils.js/userContext";
-
+import { useDispatch, useSelector } from "react-redux";
 
 export const Header = () => {
   const [btnNameReact, setBtnNameReact] = useState("Login");
 
+
   const onlineStatus = useOnlineStatus();
   const {loggedInUser} = useContext(UserContext)
 
+  // Selector hook 
+  // subscribing to the store using Selector hook
+  const cartItems = useSelector((store) => store.cart.items)
+
+  const handleClearItem = () => {
+    dispatch(clearItems())
+  };
+ console.log(cartItems,"cartItems")
 
   return (
     <div className="flex items-center justify-between h-[80px] bg-slate-400 px-[20px] text-[18px]">
@@ -20,7 +29,7 @@ export const Header = () => {
       </div>
       <div className="nav-items">
         <ul className="flex items-center gap-[40px] pr-[30px] ">
-          <li>online status: {onlineStatus ? "✅" : "🔴"}</li>
+          {/* <li>online status: {onlineStatus ? "✅" : "🔴"}</li> */}
           <li>
             <Link to="/">Home</Link>
           </li>
@@ -33,6 +42,9 @@ export const Header = () => {
           <li>
             <Link to={"/grocery"}>Grocery store</Link>
           </li>
+          <li className="relative">
+            <Link to={"/cart"} className="font-bold text-xl">Cart- ({cartItems.length})</Link>
+          </li>
           <li>
             <button
               onClick={() => {
@@ -44,9 +56,9 @@ export const Header = () => {
               {btnNameReact}
             </button>
           </li>
-          <li className="font-bold">
+          {/* <li className="font-bold">
             {loggedInUser}
-          </li>
+          </li> */}
         </ul>
       </div>
     </div>

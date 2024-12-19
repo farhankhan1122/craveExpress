@@ -13,6 +13,9 @@ import Contact from "./components/Contact.js";
 import Error from "./components/Error.js";
 import RestaurantMenu from "./components/RestaurantMenu.js";
 import UserContext from "./utils.js/userContext.js";
+import { Provider } from "react-redux";
+import appStore from "./utils.js/store/appStore.js";
+import Cart from "./components/Cart.js";
 // import Grocery from './components/Grocery.js';
 
 // Chunking
@@ -33,21 +36,23 @@ const AppLayout = () => {
       name: "Farhan khan",
     };
     setUserName(data.name);
-  },[]);
+  }, []);
   return (
     <div className="app">
-      <UserContext.Provider value={{ loggedInUser: userName, setUserName}}>
-        <Header />
-        <Outlet />
-        {/** if path = "/" */}
-        {/* <Body /> */}
-        {/** if path = "/about" */}
-        {/* <About /> */}
-        {/**if path = "/contact" */}
-        {/* <Contact /> */}
-        {Footer()}
-        <UseRefHook />
-      </UserContext.Provider>
+      <Provider store={appStore}>
+        <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+          <Header />
+          <Outlet />
+          {/** if path = "/" */}
+          {/* <Body /> */}
+          {/** if path = "/about" */}
+          {/* <About /> */}
+          {/**if path = "/contact" */}
+          {/* <Contact /> */}
+          {Footer()}
+          <UseRefHook />
+        </UserContext.Provider>
+      </Provider>
     </div>
   );
 };
@@ -64,6 +69,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
       {
         path: "/contact",
