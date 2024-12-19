@@ -1,6 +1,15 @@
+import { useDispatch } from "react-redux";
 import { CDN_URL } from "../utils.js/constants";
+import { addItems } from "../utils.js/store/slices/cartSlice";
 
 const ItemList = ({ items }) => {
+  const dispatch = useDispatch()
+
+  const handleAddItem = (item) => {
+   // Dispatch an action with the item as payload
+    dispatch(addItems(item))
+  };
+  
   console.log(items, "items");
   return (
     <div>
@@ -32,7 +41,12 @@ const ItemList = ({ items }) => {
                 alt=""
               />
             )}
-            <button className="absolute bottom-[-10px] left-[50%] translate-x-[-50%] bg-white flex items-center justify-center px-[20px] leading-[24px] font-[800] text-[18px] text-greentextcolor border-[1px] border-buttonbordercolor rounded-[8px] h-[40px]">
+            <button 
+            // you have called the functions already
+            //     onClick={handleAddItem(item)}
+            // onClick={() => handleAddItem(item)}
+            onClick={()=>handleAddItem(item)}
+             className="absolute bottom-[-10px] left-[50%] translate-x-[-50%] bg-white flex items-center justify-center px-[20px] leading-[24px] font-[800] text-[18px] text-greentextcolor border-[1px] border-buttonbordercolor rounded-[8px] h-[40px]">
               ADD
             </button>
           </div>
