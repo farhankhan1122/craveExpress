@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Camp</title>
+    <link rel="stylesheet" href="firstProject.css">
+</head>
+<body>
+    <!-- <div id="root">
+    </div>
+    <div id="root-new">
+    </div>
+    <div id="rootA" style="width: 100%;height: 300px;display: flex;background: #000;color: cadetblue;font-weight: 700;"></div> -->
+
+    <div id="firstProject"></div>
+
+
+    <!-- root.render put something inside root -->
+    <!-- but suppose already something existed here -->
+    <!-- <div id="root2">
+        <h1>i am here</h1>
+    </div> -->
+    <!-- this code is replaced not appended -->
+    <!-- ans: this "i am here is" replaced by parent tag that we rendering-->
+    <!-- because firstly browser reads html it will print " i am here" then go to scripts and load react then load react dom ibnto our app  -->
+
+    <!-- <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script> -->
+
+    <!-- <script type="module" src="/app1.js"></script>
+    <script type="module" src="/app2.js"></script> -->
+    <!-- <script type="module" src="/firstProject.js"></script> -->
+    <script type="module" src="./src/App.js"></script>
+
+    <!-- the most constly operation is dom manipulation -->
+    <!-- putting some node inside dom and removing some nodes from dom  -->
+    <!-- all frameworks and libraries are trying to optimize it -->
+    <!-- react also comed with the philosophy that whenever you need to do anything on webpage do it using javascript  -->
+</body>
+</html>
+
+
+<!-- React.createElement is not the right way because it is clumsy -->
