@@ -5,8 +5,9 @@ import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils.js/customHooks/useOnlineStatus";
 import UserContext from "../utils.js/userContext";
 import { useDispatch, useSelector } from "react-redux";
+import newLogo from "../../public/icons/logo-1.svg"
 
-export const Header = () => {
+export const Header = ({activeHeader}) => {
   const [btnNameReact, setBtnNameReact] = useState("Login");
 
 
@@ -23,9 +24,10 @@ export const Header = () => {
  console.log(cartItems,"cartItems")
 
   return (
-    <div className="flex items-center justify-between h-[80px] bg-slate-400 px-[20px] text-[18px]">
+    <div className={activeHeader ? 'absolute z-[10] w-full flex items-center justify-between h-[80px] px-[20px] text-[18px] text-white' : 'absolute z-[5] w-full flex items-center justify-between h-[80px] px-[20px] text-[18px] text-black bg-white shadow-custom'}>
       <div className="w-[50px] h-[50px]">
-        <img className="rounded-full" slt="food logo" src={LOGO_URL} />
+        {/* <img className="rounded-full" slt="food logo" src="/public/icons/BiteLogo.svg" /> */}
+        <img className="" slt="food logo" src={newLogo} />
       </div>
       <div className="nav-items">
         <ul className="flex items-center gap-[40px] pr-[30px] ">
@@ -43,7 +45,7 @@ export const Header = () => {
             <Link to={"/grocery"}>Grocery store</Link>
           </li>
           <li className="relative">
-            <Link to={"/cart"} className="font-bold text-xl">Cart- ({cartItems.length})</Link>
+            <Link to={"/cart"}>Cart- ({cartItems.length})</Link>
           </li>
           <li>
             <button
