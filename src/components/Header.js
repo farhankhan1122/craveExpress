@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils.js/customHooks/useOnlineStatus";
 import UserContext from "../utils.js/userContext";
 import { useDispatch, useSelector } from "react-redux";
-import newLogo from "../../public/icons/logo-1.svg"
+import newLogo from "../../public/icons/cravexpress-3.webp"
 
 export const Header = ({activeHeader}) => {
   const [btnNameReact, setBtnNameReact] = useState("Login");
@@ -25,16 +25,15 @@ export const Header = ({activeHeader}) => {
 
   return (
     <div className={activeHeader ? 'absolute z-[10] w-full flex items-center justify-between h-[80px] px-[20px] text-[18px] text-white' : 'absolute z-[5] w-full flex items-center justify-between h-[80px] px-[20px] text-[18px] text-black bg-white shadow-custom'}>
-      <div className="w-[50px] h-[50px]">
+      <div className="w-[120px] h-auto relative">
         {/* <img className="rounded-full" slt="food logo" src="/public/icons/BiteLogo.svg" /> */}
-        <img className="" slt="food logo" src={newLogo} />
+        <Link to="/">
+          <img className="" slt="food logo" src={newLogo} />
+        </Link>
       </div>
       <div className="nav-items">
         <ul className="flex items-center gap-[40px] pr-[30px] ">
           {/* <li>online status: {onlineStatus ? "✅" : "🔴"}</li> */}
-          <li>
-            <Link to="/">Home</Link>
-          </li>
           <li>
             <Link to={"/about"}>About Us</Link>
           </li>
