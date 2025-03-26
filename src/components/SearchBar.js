@@ -1,4 +1,5 @@
 import homeSearch from "../../public/images/bite-home.jpg"
+import video from "../../public/videos/food-video-1.mp4"
 import { useState, useEffect, useContext } from "react"
 import useBody from "../utils.js/customHooks/useBody";
 import useOnlineStatus from "../utils.js/customHooks/useOnlineStatus";
@@ -26,7 +27,11 @@ export const SearchBar = () => {
 
     return (
         <div className="relative z-[7]" >
-            <img className="h-[450px] object-cover" src={homeSearch} alt="search" />
+            <video className="h-[65dvh] w-full object-cover" autoPlay loop muted playsInline >
+                <source src={video} type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+            {/* <img className="h-[450px] object-cover" src={homeSearch} alt="search" /> */}
             <div className="absolute top-0 right-0 opacity-[40%] w-full h-full bg-black "></div>
 
 

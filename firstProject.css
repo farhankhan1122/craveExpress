@@ -111,6 +111,8 @@ p {
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
+    max-width: 1200px;
+    margin: auto;
 }
 
 .res-card-name {
@@ -205,4 +207,52 @@ p {
     height: 60px;
     border-radius: 50%;
     border: 2px solid black;
+}
+
+.fhJZcJ {
+    position: relative;
+}
+.fhJZcJ::before {
+    content: "";
+    height: 0px;
+    display: block;
+    padding-top: calc(66.6667%);
+}
+.kSoVYh {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+}
+.iJKEuv {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    filter: drop-shadow(rgba(0, 0, 0, 0.1) 0px 2px 8px);
+}
+.jRHowI {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* media query */
+@media (min-width: 961px) {
+    .res-container {
+        max-width: none;
+        margin-left: calc(10% + 36px);
+        margin-right: calc(10% + 36px);
+        display: grid;
+        -webkit-box-align: start;
+        align-items: start;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 32px;
+    }
+    .res-card, .res-card-link {
+        width: 100%;
+        height: 100%;
+    }
 }
