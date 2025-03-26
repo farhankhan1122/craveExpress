@@ -47,7 +47,7 @@ const RestaurantMenu = () => {
               fill="none"
               aria-hidden="true"
               strokeColor="rgba(2, 6, 12, 0.92)"
-              fillColor="rgba(2, 6, 12, 0.92)"
+              fillcolor="rgba(2, 6, 12, 0.92)"
             >
               <circle
                 cx="10"
