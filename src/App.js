@@ -16,6 +16,7 @@ import UserContext from "./utils.js/userContext.js";
 import { Provider } from "react-redux";
 import appStore from "./utils.js/store/appStore.js";
 import Cart from "./components/Cart.js";
+import SearchBar from "./components/SearchBar.js";
 // import Grocery from './components/Grocery.js';
 
 // Chunking
@@ -41,7 +42,8 @@ const AppLayout = () => {
     <div className="app">
       <Provider store={appStore}>
         <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
-          <Header />
+          <Header activeHeader={false} />
+          {/* <SearchBar /> */}
           <Outlet />
           {/** if path = "/" */}
           {/* <Body /> */}

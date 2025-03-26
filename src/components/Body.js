@@ -8,6 +8,8 @@ import Shimmer from "./shimmer";
 import useBody from "../utils.js/customHooks/useBody";
 import useOnlineStatus from "../utils.js/customHooks/useOnlineStatus";
 import UserContext from "../utils.js/userContext";
+import SearchBar from "./SearchBar";
+import Header from "./Header";
 
 const Body = () => {
   // local state variable - super powerful variable  scope is local
@@ -45,8 +47,10 @@ const Body = () => {
 
   return (
     <div className="body">
+      <Header activeHeader={true} />
+      <SearchBar />
       <div className="filter" style={{ display: "flex" }}>
-        <div className="search">
+        {/* <div className="search">
           <input
             className="search_input"
             type="text"
@@ -55,11 +59,6 @@ const Body = () => {
               setSearchText(e.target.value);
             }}
           />
-          {/* filter the restraunt cards and update the ui */}
-          {/* need search text */}
-          {/* inputfield is restricting value to be typed because value searchText is tighted the value as empty  */}
-          {/* whenever local variable changes react re render the component but only the changed value getting render with virtual dom(finding difference b/w older virtual dom and newer virtual dom)*/}
-          {/* whenever state variables update , react triggers a reconciliation cycle(re-render the conponent) */}
           <button
             onClick={() => {
               const filteredRestaurants = listOfRestaurants.filter((res) =>
@@ -72,7 +71,7 @@ const Body = () => {
           >
             Search
           </button>
-        </div>
+        </div> */}
         <button
           className="filter-btn"
           onClick={() => {
