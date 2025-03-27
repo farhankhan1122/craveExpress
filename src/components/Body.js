@@ -23,7 +23,7 @@ const Body = () => {
   const restaurantsListData = useBody();
   const onlineStatus = useOnlineStatus();
 
-  const {loggedInUser, setUserName} = useContext(UserContext)
+  const { loggedInUser, setUserName } = useContext(UserContext)
 
   useEffect(() => {
     setListOfReastauants(restaurantsListData);
@@ -39,8 +39,8 @@ const Body = () => {
 
   // normal js variable
   // scope is local
-  console.log(listOfRestaurants,"listOfRestaurants");
-  
+  console.log(listOfRestaurants, "listOfRestaurants.");
+
   if (listOfRestaurants?.length === 0) {
     return <Shimmer />;
   }
@@ -48,30 +48,12 @@ const Body = () => {
   return (
     <div className="body">
       <Header activeHeader={true} />
-      <SearchBar />
+      <SearchBar listOfRestaurants={listOfRestaurants}
+        setFilteredReastauants={setFilteredReastauants} />
       <div className="filter" style={{ display: "flex" }}>
-        {/* <div className="search">
-          <input
-            className="search_input"
-            type="text"
-            value={searchText}
-            onChange={(e) => {
-              setSearchText(e.target.value);
-            }}
-          />
-          <button
-            onClick={() => {
-              const filteredRestaurants = listOfRestaurants.filter((res) =>
-                res.info.name.toLowerCase().includes(searchText.toLowerCase())
-              );
-              setFilteredReastauants(filteredRestaurants);
-            }}
-            className="submit_search"
-            type="button"
-          >
-            Search
-          </button>
-        </div> */}
+
+
+
         <button
           className="filter-btn"
           onClick={() => {
@@ -79,15 +61,17 @@ const Body = () => {
               (res) => res.info.rating.rating_text > 4
             );
             setListOfReastauants(filteredList);
-            console.log(listOfRestaurants,"listofres");
+            console.log(listOfRestaurants, "listofres");
           }}
         >
           Top Rated Restaurants
         </button>
 
         <label>User Name</label>
-        <input value={loggedInUser} className="border border-black" onChange={(e) => setUserName(e.target.value) } />
+        <input value={loggedInUser} className="border border-black" onChange={(e) => setUserName(e.target.value)} />
       </div>
+
+
       <div className="res-container">
         {/* <RestaurantCard name="Meghana Foods" cuisine="Biryani, Paratha, Chinese" rating="4.3" />
                 <RestaurantCard name="KFC" cuisine="Burger, Fast Foods, Biryani, Hot Wings" rating="4.0" />
@@ -129,8 +113,8 @@ const Body = () => {
             key={restaurant.info.id}
             to={"/restaurants/" + restaurant.info.id}
           >
-            
-            
+
+
             {/* for higher order function that will give us label of promoted if card is promoted */}
             {restaurant?.info?.isOpen ? (
               <RestaurantCardPromoted cardsData={restaurant} />

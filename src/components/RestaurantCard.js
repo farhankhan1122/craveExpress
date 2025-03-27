@@ -65,7 +65,7 @@ const RestaurantCard = (props) => {
 export const withPromotedLabel = (RestaurantCard) => {
     return (props) => {
         return (
-            <div className="relative overflow-hidden">
+            <div className="relative overflow-hidden rounded-t-[16px]">
                 <label className="absolute rounded-sm text-white text-[13px] px-[5px] bg-green-500" >Now Open</label>
                 <RestaurantCard {...props} />
             </div>
