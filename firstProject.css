@@ -243,7 +243,9 @@ p {
 .footer {
     background-color: rgb(240, 240, 245);
     margin-top: 30px;
-    border-top: 2px solid rgb(39, 38, 38);
+    border-top: 2px solid #2726264f;
+    padding-top: 7vh;
+    padding-bottom: 30px;
 }
 .gCijQr {
     font-family: "Roboto", sans-serif;
