@@ -52,7 +52,7 @@ const AppLayout = () => {
           {/**if path = "/contact" */}
           {/* <Contact /> */}
           {Footer()}
-          <UseRefHook />
+          {/* <UseRefHook /> */}
         </UserContext.Provider>
       </Provider>
     </div>
