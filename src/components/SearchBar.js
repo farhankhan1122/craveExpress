@@ -99,6 +99,11 @@ export const SearchBar = ({ listOfRestaurants, setFilteredReastauants }) => {
                 >
                     Search
                 </button>
+
+                {/* search container */}
+                <div>
+                    
+                </div>
             </div>
         </div>
     )

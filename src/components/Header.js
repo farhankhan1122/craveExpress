@@ -24,7 +24,7 @@ export const Header = ({activeHeader}) => {
  console.log(cartItems,"cartItems")
 
   return (
-    <div className={activeHeader ? 'absolute z-[10] w-full flex items-center justify-between h-[80px] px-[20px] text-[18px] text-white' : 'absolute z-[5] w-full flex items-center justify-between h-[80px] px-[20px] text-[18px] text-black bg-white shadow-custom'}>
+    <div className={activeHeader ? 'fixed z-[10] w-full flex items-center justify-between h-[80px] px-[20px] text-[18px] text-white' : 'fixed z-[5] w-full flex items-center justify-between h-[80px] px-[20px] text-[18px] text-black bg-white shadow-custom'}>
       <div className="w-[120px] h-auto relative">
         {/* <img className="rounded-full" slt="food logo" src="/public/icons/BiteLogo.svg" /> */}
         <Link to="/">
