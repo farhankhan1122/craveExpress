@@ -1,5 +1,6 @@
 import homeSearch from "../../public/images/bite-home.jpg"
-import video from "../../public/videos/food-video-cmp.mp4"
+// import video from "../../public/videos/food-video-cmp.mp4"
+import video from "../../public/videos/food-video-2.mp4"
 import { useState, useEffect, useContext } from "react"
 import useBody from "../utils.js/customHooks/useBody";
 import useOnlineStatus from "../utils.js/customHooks/useOnlineStatus";
