@@ -154,6 +154,10 @@ p {
     background-color: #cccccc52;
     margin-top: 70.78px;
 }
+.shimmer_card_video {
+    background-color: #cccccc52;
+    margin-top: 0;
+}
 
 .container {
     max-width: 800px;
