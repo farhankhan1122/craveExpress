@@ -40,6 +40,9 @@ export const Header = ({ activeHeader }) => {
         <ul className="flex items-center gap-[40px] pr-[30px] ">
           {/* <li>online status: {onlineStatus ? "✅" : "🔴"}</li> */}
           <li>
+            <Link to={"/"}>Home</Link>
+          </li>
+          <li>
             <Link to={"/about"}>About Us</Link>
           </li>
           <li>
