@@ -1,10 +1,9 @@
 import React from "react";
 import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
-// import cardsList from "../utils.js/mockData";
 import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-import { resMockData } from "../utils.js/restaurantsConstant";
-import Shimmer from "./shimmer";
+// import Shimmer from "./shimmer";
+import Shimmer from "./Shimmer?v=1";
 import useBody from "../utils.js/customHooks/useBody";
 import useOnlineStatus from "../utils.js/customHooks/useOnlineStatus";
 import UserContext from "../utils.js/userContext";
@@ -13,9 +12,8 @@ import Header from "./Header";
 
 const Body = () => {
   // local state variable - super powerful variable  scope is local
-  const [listOfRestaurants, setListOfReastauants] = useState([]);
-  const [filteredRestaurants, setFilteredReastauants] = useState([]);
-  const [searchText, setSearchText] = useState("");
+  const [listOfRestaurants, setListOfReastauants] = useState(null);
+  const [filteredRestaurants, setFilteredReastauants] = useState(null);
 
   const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
 
@@ -39,14 +37,11 @@ const Body = () => {
 
   // normal js variable
   // scope is local
-  console.log(listOfRestaurants, "listOfRestaurants.");
+  console.log(listOfRestaurants, "listOfRestaurants...");
 
   if (listOfRestaurants?.length === 0) {
     return <Shimmer />;
   }
-  // if (listOfRestaurants?.length === 0) {
-  //   return <Shimmer key={new Date().getTime()} />; // Force re-render
-  // }
 
   return (
     <div className="body">

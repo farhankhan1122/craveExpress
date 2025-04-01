@@ -349,11 +349,11 @@ svg:not(:root) {
         gap: 32px;
     }
 
-    .res-card,
+    /* .res-card,
     .res-card-link {
         width: 100%;
         height: 100%;
-    }
+    } */
 
     .shimmer_container .res_card {
         width: 225px;

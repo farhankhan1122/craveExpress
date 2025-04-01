@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  // safelist: ["shimmer_card", "shimmer_container", "shimmer_card_video"],
   content: [
     "./src/**/*.{html,js,ts,jsx,tsx}",
   ],
