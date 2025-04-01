@@ -44,6 +44,9 @@ const Body = () => {
   if (listOfRestaurants?.length === 0) {
     return <Shimmer />;
   }
+  // if (listOfRestaurants?.length === 0) {
+  //   return <Shimmer key={new Date().getTime()} />; // Force re-render
+  // }
 
   return (
     <div className="body">
@@ -67,8 +70,8 @@ const Body = () => {
           Top Rated Restaurants
         </button>
 
-        <label>User Name</label>
-        <input value={loggedInUser} className="border border-black" onChange={(e) => setUserName(e.target.value)} />
+        {/* <label>User Name</label> */}
+        {/* <input value={loggedInUser} className="border border-black" onChange={(e) => setUserName(e.target.value)} /> */}
       </div>
 
 
