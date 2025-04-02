@@ -1,5 +1,6 @@
 import ItemList from "./ItemList";
 import { useState } from "react";
+import arrow from "../../public/icons/arrow.svg"
 
 const RestaurantCategory = ({data, showItem, setShowIndex}) => {
     // const [showItem , setShowItem] = useState(false)
@@ -17,7 +18,9 @@ const RestaurantCategory = ({data, showItem, setShowIndex}) => {
           <span className="text-[18px] tracking-[-0.3px] text-textcolor font-[700]">
             {data?.title} ({data?.itemCards.length})
           </span>
-          <span>🔽</span>
+          <span>
+            <img className="w-[20px] h-[20px]" src={arrow} />
+          </span>
         </div>
         { showItem && <ItemList items={data?.itemCards} />}
       </div>

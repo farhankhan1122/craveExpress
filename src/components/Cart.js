@@ -1,6 +1,7 @@
 import { clearItems } from "../utils.js/store/slices/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
-import ItemList from "./ItemList";
+// import ItemList from "./ItemList";
+import Checkout from "./Checkout";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -20,16 +21,19 @@ const Cart = () => {
   return (
     <div className="container">
       <div className="flex flex-col justify-center items-center">
-        <h2 className="text-[20px] font-[700] text-black mb-[10px]">Cart</h2>
-        <button
+        <h2 className="text-[20px] font-[700] text-black">Checkout</h2>
+        {/* <button
           onClick={handleClearCart}
           className="p-[10px] bg-black flex items-center justify-center border-[1px] border-buttonbordercolor rounded-[6px] h-[30px] text-white"
         >
           Clear cart
-        </button>
+        </button> */}
       </div>
-      {cartItems.length === 0 && (<h3 className="min-h-[300px] flex items-center justify-center">Cart is Empty. Add Items to the Cart!</h3>)}
-      <ItemList items={cartItems} />
+      {/* {cartItems.length === 0 && (<h3 className="min-h-[300px] flex items-center justify-center">Cart is Empty. Add Items to the Cart!</h3>)} */}
+      {/* <ItemList items={cartItems} /> */}
+      {/* <Checkout items={cartItems} /> */}
+      {/* <Checkout items={cartItems} /> */}
+      <Checkout />
     </div>
   );
 };

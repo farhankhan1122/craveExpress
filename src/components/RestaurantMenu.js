@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import Shimmer from "./shimmer";
+// import Shimmer from "./shimmer";
+import Shimmer from "./Shimmer?v=1";
 import useRestaurantMenu from "../utils.js/customHooks/useRestaurantMenu";
 import RestaurantCategory from "./RestaurantCategory";
 
 const RestaurantMenu = () => {
   const { redId } = useParams();
   const resInfo = useRestaurantMenu(redId);
-  const [ showIndex , setShowIndex ] = useState(null)
+  const [ showIndex , setShowIndex ] = useState(0)
   console.log(resInfo, "resInfo");
 
   if (resInfo === null) return <Shimmer />;
@@ -47,7 +48,7 @@ const RestaurantMenu = () => {
               fill="none"
               aria-hidden="true"
               strokeColor="rgba(2, 6, 12, 0.92)"
-              fillColor="rgba(2, 6, 12, 0.92)"
+              fillcolor="rgba(2, 6, 12, 0.92)"
             >
               <circle
                 cx="10"
@@ -97,8 +98,10 @@ const RestaurantMenu = () => {
         return <RestaurantCategory 
         key={category?.card?.card.title} 
         data={category?.card?.card}
-        showItem={index === showIndex ? true : false} 
-        setShowIndex={() => setShowIndex(index)}/>;
+        // showItem={index === showIndex ? true : true} 
+        // setShowIndex={() => setShowIndex(index)}/>;
+        showItem={index === showIndex} 
+        setShowIndex={() => setShowIndex(index === showIndex ? null : index)}/>
       })}
     </div>
   );

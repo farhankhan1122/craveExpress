@@ -1,0 +1,216 @@
+.checkout-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 20px 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+  
+  .cart-section {
+    padding: 20px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e9ecef;
+    margin-bottom: 20px;
+  }
+  
+  .cart-items {
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 10px;
+  }
+  
+  .cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #e9ecef;
+  }
+  
+  .item-details {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  .veg-badge, .non-veg-badge {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    position: relative;
+    flex-shrink: 0;
+  }
+  
+  .veg-badge {
+    border: 1px solid #48c479;
+  }
+  
+  .veg-badge::after {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: #48c479;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+  }
+
+  .non-veg-badge {
+    border: 1px solid red;
+  }
+  
+  .non-veg-badge::after {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: red;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+  }
+  
+  .quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .quantity-btn {
+    width: 28px;
+    height: 28px;
+    border: 1px solid #d4d5d9;
+    color: #60b246;
+    font-size: 18px;
+    background: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .payment-section {
+    padding: 20px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .address-form {
+    margin-bottom: 30px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #282c3f;
+    font-weight: 500;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d4d5d9;
+    border-radius: 8px;
+    font-size: 14px;
+  }
+  
+  .payment-methods {
+    border: 1px solid #d4d5d9;
+    border-radius: 8px;
+  }
+  
+  .payment-method {
+    padding: 15px;
+    border-bottom: 1px solid #d4d5d9;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .payment-method:last-child {
+    border-bottom: none;
+  }
+  
+  .payment-method.active {
+    background: #f0f3f5;
+  }
+  
+  .bill-details {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e9ecef;
+  }
+  
+  .bill-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    color: #686b78;
+    font-size: 14px;
+  }
+  
+  .bill-total {
+    font-weight: 600;
+    color: #282c3f;
+    font-size: 16px;
+    padding-top: 12px;
+    border-top: 1px solid #e9ecef;
+  }
+  
+  .place-order-btn {
+    width: 100%;
+    padding: 14px;
+    background: #60b246;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .place-order-btn:hover {
+    background: #48c479;
+  }
+  
+  @media (max-width: 968px) {
+    .checkout-container {
+      grid-template-columns: 1fr;
+      padding: 60px 15px 30px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .cart-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+  
+    .item-details {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 5px;
+    }
+  
+    .quantity-controls {
+      margin-top: 10px;
+    }
+  }

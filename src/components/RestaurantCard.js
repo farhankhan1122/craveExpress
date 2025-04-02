@@ -12,7 +12,7 @@ const RestaurantCard = (props) => {
     // using zomato api
     // lets clean our code i.e destructure data because cardsData.info is repeating again and again
     const { cardsData } = props
-    const { name, cuisines, avgRating, costForTwo, cloudinaryImageId } = cardsData?.info
+    const { name, cuisines, avgRating, costForTwo, cloudinaryImageId, sla } = cardsData?.info
     // const {deliveryTime} = cardsData?.order
     // this is ?. is optional chaining
     return (
@@ -39,18 +39,17 @@ const RestaurantCard = (props) => {
 
             <div className="res-card-details">
                 <h3 className="res-card-name">{name}</h3>
-                <p className="res-card-cuisines">{cuisines[0].name}</p>
                 <div className="res-card-subdetails">
                     <div className="star-rating">
                         <span>&#9733;</span>
                         <span>{avgRating}</span>
                     </div>
-                    <span>.</span>
-                    {/* <p>{deliveryTime}</p> */}
-                    <span>.</span>
-                    <p>{costForTwo}</p>
-                    <p>{loggedInUser}</p>
+                    <span className="mx-[6px]">-</span>
+                    <p className="res-card-cuisines">{sla.slaString}</p>
+                    {/* <p>{loggedInUser}</p> */}
                 </div>
+                <p className="res-card-cuisines">{cuisines}.</p>
+                
             </div>
         </div>
     )
@@ -65,7 +64,7 @@ const RestaurantCard = (props) => {
 export const withPromotedLabel = (RestaurantCard) => {
     return (props) => {
         return (
-            <div className="relative overflow-hidden">
+            <div className="relative overflow-hidden rounded-t-[16px]">
                 <label className="absolute rounded-sm text-white text-[13px] px-[5px] bg-green-500" >Now Open</label>
                 <RestaurantCard {...props} />
             </div>
