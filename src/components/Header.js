@@ -73,9 +73,9 @@ export const Header = ({ activeHeader }) => {
               className="flex items-center gap-2 cart_item_wrapper"
               to={"/cart"}
             >
-              <span class="cart_el cart_item">
+              <span className="cart_el cart_item">
                 <svg
-                  class="cart_svg cart_svg_color"
+                  className="cart_svg cart_svg_color"
                   viewBox="-1 0 37 32"
                   height="20"
                   width="20"
@@ -83,7 +83,7 @@ export const Header = ({ activeHeader }) => {
                 >
                   <path d="M4.438 0l-2.598 5.11-1.84 26.124h34.909l-1.906-26.124-2.597-5.11z"></path>
                 </svg>
-                <span class="cart_item_count">{cartItems.length}</span>
+                <span className="cart_item_count">{cartItems.length}</span>
               </span>
               <span>Cart</span>
             </Link>
