@@ -67,7 +67,7 @@ p {
 .res-card-subdetails {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: start;
     font-size: 12px;
     color: #a5a5a5;
 }
@@ -334,6 +334,14 @@ svg:not(:root) {
 }
 .cart_item .cart_item_count {
     color: #fff;
+}
+.error-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: beige;
+    padding: 30px;
 }
 
 /* media query */

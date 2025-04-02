@@ -9,6 +9,7 @@ import useOnlineStatus from "../utils.js/customHooks/useOnlineStatus";
 import UserContext from "../utils.js/userContext";
 import SearchBar from "./SearchBar";
 import Header from "./Header";
+import corsImage from "../../public/icons/cors-image.png";
 
 const Body = () => {
   // local state variable - super powerful variable  scope is local
@@ -18,7 +19,7 @@ const Body = () => {
   const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
 
   // custom hooks
-  const restaurantsListData = useBody();
+  const {restaurantsListData, error} = useBody();
   const onlineStatus = useOnlineStatus();
 
   const { loggedInUser, setUserName } = useContext(UserContext)
@@ -28,7 +29,7 @@ const Body = () => {
     setFilteredReastauants(restaurantsListData);
   }, [restaurantsListData]);
 
-  if (onlineStatus === false)
+  if (!onlineStatus)
     return (
       <h1>
         Looks like you're offline!! Please check your internet connection.{" "}
@@ -39,9 +40,28 @@ const Body = () => {
   // scope is local
   console.log(listOfRestaurants, "listOfRestaurants...");
 
+  if (error) {
+    console.log(error,"error")
+    return (
+      <div className="error-message">
+        <h3>⚠️ {error}</h3>
+        <a
+          href="https://chrome.google.com/webstore/detail/allow-cors-access-controll/lfhmikememgdcahcdlacilocejkmlioa"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ➡️ Please Install CORS Extension
+          <img src={corsImage} alt="cors image" />
+        </a>
+      </div>
+    );
+  }
+
   if (listOfRestaurants?.length === 0) {
     return <Shimmer />;
   }
+
+
 
   return (
     <div className="body">
@@ -52,7 +72,7 @@ const Body = () => {
 
 
 
-        <button
+        {/* <button
           className="filter-btn"
           onClick={() => {
             const filteredList = listOfRestaurants.filter(
@@ -63,7 +83,7 @@ const Body = () => {
           }}
         >
           Top Rated Restaurants
-        </button>
+        </button> */}
 
         {/* <label>User Name</label> */}
         {/* <input value={loggedInUser} className="border border-black" onChange={(e) => setUserName(e.target.value)} /> */}
