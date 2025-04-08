@@ -64,7 +64,7 @@ export const SearchBar = ({ listOfRestaurants, setFilteredReastauants }) => {
 
     return (
         <div className="relative z-[7]" >
-            <video className="h-[65dvh] w-full object-cover" autoPlay loop muted playsInline >
+            <video className="video h-[65dvh] w-full object-cover" autoPlay loop muted playsInline >
                 <source src={video} type="video/mp4" />
                 Your browser does not support the video tag.
             </video>
@@ -73,9 +73,9 @@ export const SearchBar = ({ listOfRestaurants, setFilteredReastauants }) => {
 
 
             <div className="search w-full items-center justify-center flex flex-col absolute top-0 left-0 right-0 bottom-0 m-auto">
-                <p className="text-white text-[40px] font-normal">Discover the Best Food and Drinks</p>
+                <p className="mobile_video_text text-white text-[40px] font-normal max-md:text-[30px] text-center">Discover the Best Food and Drinks</p>
                 <input
-                    className="search_input w-[50%] h-[50px]"
+                    className="search_input w-[50%] h-[50px] max-md:w-[80%] max-md:h-[40px]"
                     placeholder="Search for restaurant and cuisines"
                     type="text"
                     value={searchText}
