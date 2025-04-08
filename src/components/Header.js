@@ -6,6 +6,7 @@ import useOnlineStatus from "../utils.js/customHooks/useOnlineStatus";
 import UserContext from "../utils.js/userContext";
 import { useDispatch, useSelector } from "react-redux";
 import newLogo from "../../public/icons/cravexpress-3.webp";
+import menuIcon from "../../public/icons/burger-menu.svg";
 
 export const Header = ({ activeHeader }) => {
   const [btnNameReact, setBtnNameReact] = useState("Login");
@@ -41,19 +42,18 @@ export const Header = ({ activeHeader }) => {
 
   return (
     <div
-    className={`fixed w-full flex items-center justify-between h-[80px] px-[20px] text-[18px] 
+      className={`fixed w-full flex items-center justify-between h-[80px] px-[20px] text-[18px] 
       ${activeHeader ? "z-[10]" : "z-[5]"} 
       ${activeHeader && !isScrolled ? "text-white" : "text-black"} 
       ${isScrolled ? "bg-white shadow-custom" : "bg-transparent"}`}
-  >
-        
+    >
       <div className="w-[120px] h-auto relative">
         {/* <img className="rounded-full" slt="food logo" src="/public/icons/BiteLogo.svg" /> */}
         <Link to="/">
           <img className="" slt="food logo" src={newLogo} />
         </Link>
       </div>
-      <div className="nav-items">
+      <div className="nav-items big_screen">
         <ul className="flex items-center gap-[40px] pr-[30px] ">
           {/* <li>online status: {onlineStatus ? "✅" : "🔴"}</li> */}
           <li>
@@ -103,6 +103,35 @@ export const Header = ({ activeHeader }) => {
             {loggedInUser}
           </li> */}
         </ul>
+      </div>
+      <div className="menu_icon small_screen">
+        {/* <img src={menuIcon} alt="menu icon" /> */}
+        <svg
+          width="40px"
+          height="40px"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M4 18L20 18"
+            stroke={activeHeader && !isScrolled ? "#ffffff" : "#000000"} 
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+          <path
+            d="M4 12L20 12"
+            stroke={activeHeader && !isScrolled ? "#ffffff" : "#000000"} 
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+          <path
+            d="M4 6L20 6"
+            stroke={activeHeader && !isScrolled ? "#ffffff" : "#000000"} 
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+        </svg>
       </div>
     </div>
   );
