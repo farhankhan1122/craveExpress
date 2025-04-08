@@ -357,6 +357,26 @@ svg:not(:root) {
 .ul_parent {
     max-width: 30vw;
 }
+.menu_dropdown {
+    height: 100dvh;
+    z-index: 10;
+}
+.mobile_header_item {
+    z-index: 99;
+}
+.menu_dropdown ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+    height: 100%;
+}
+.menu_dropdown ul li {
+    margin-bottom: 10px;
+    font-size: 30px;
+    text-align: center;
+    
+}
 
 /* media query */
 @media (min-width: 961px) {
@@ -394,7 +414,19 @@ svg:not(:root) {
         padding-left: calc(10% + 36px);
         padding-right: calc(10% + 36px);
     }
-
+    
+}
+@media (max-width: 961px){
+    
+    .cart_item_wrapper {
+        justify-content: center;
+    }
+    .cart_el {
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: translateY(0%);
+    }
 }
 
 @media (max-width: 768px) {
@@ -410,9 +442,9 @@ svg:not(:root) {
 }
 
 @media (max-width: 480px) {
-    .res-card, .res-card-link {
-        width: 100%;
-        height: 100%;
+    .res-card-link {
+        width: 45%;
+        height: 45%;
     }
     .video {
         height: 35dvh;
