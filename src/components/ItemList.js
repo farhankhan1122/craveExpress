@@ -76,9 +76,9 @@ const ItemList = ({ items }) => {
                 </span>
                 {/* <hr /> */}
               </div>
-              <div onClick={() => setSelectedDish(item)} className="relative w-[156px] h-[144px] shrink-0 ml-[60px] bg-imageBackground rounded-[12px]">
+              <div className="relative w-[156px] h-[144px] shrink-0 ml-[60px] bg-imageBackground rounded-[12px]">
                 {item.card.info.imageId && (
-                  <img
+                  <img onClick={() => setSelectedDish(item)}
                     className="w-full h-full rounded-[12px]"
                     src={CDN_URL + item?.card?.info?.imageId}
                     alt=""
@@ -115,7 +115,7 @@ const ItemList = ({ items }) => {
                 <div className="relative">
                   {/* If item is in cart, show - and quantity */}
                   {itemCount > 0 ? (
-                    <div className="absolute bottom-[-10px] h-[40px] left-[50%] translate-x-[-50%] flex items-center bg-white border border-buttonbordercolor rounded-[8px] px-2">
+                    <div className="absolute bottom-[-10px] h-[40px] left-[50%] translate-x-[-50%] flex items-center bg-white border border-buttonbordercolor rounded-[8px] px-2 z-[999]">
                       <button
                         onClick={() => handleRemoveItem(item)}
                         className="px-2 font-bold text-[18px] text-greentextcolor"
