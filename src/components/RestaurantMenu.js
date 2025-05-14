@@ -1,14 +1,23 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Shimmer from "./Shimmer?v=1";
 import useRestaurantMenu from "../utils.js/customHooks/useRestaurantMenu";
 import RestaurantCategory from "./RestaurantCategory";
+import { useSelector } from "react-redux";
 
 const RestaurantMenu = () => {
   const { redId } = useParams();
   const resInfo = useRestaurantMenu(redId);
   const [ showIndex , setShowIndex ] = useState(0)
   console.log(resInfo, "resInfo");
+
+  const cartItems = useSelector((state) => state.cart.items);
+
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/cart");
+  };
 
   if (resInfo === null) return <Shimmer />;
 
@@ -128,6 +137,31 @@ const categories = resInfo?.categories
         showItem={index === showIndex} 
         setShowIndex={() => setShowIndex(index === showIndex ? null : index)}/>
       })}
+
+      {/* cart popup */}
+      <div className="cart_popup_wrapper">
+        <div className={`cart_popup ${cartItems.length > 0 ? "open_cart_popup" : ""}`}>
+          <button onClick={handleClick} className="cart_pop_btn">
+            <span className="flex items-center px-[16px] h-full">
+              <span className="cart_span2 flex-1 font-bold">{cartItems.length} <span className="font-medium ml-[6px]">  Item Added</span></span>
+              <span className="cart_span2">
+                <span>View Cart</span>
+                <span className="ml-[5px] border-none">
+                  <svg
+                  className="cart_svg cart_svg_color"
+                  viewBox="-1 0 37 32"
+                  height="20"
+                  width="20"
+                  fill="#ffffff"
+                >
+                  <path d="M4.438 0l-2.598 5.11-1.84 26.124h34.909l-1.906-26.124-2.597-5.11z"></path>
+                </svg>
+                </span>
+              </span>
+            </span>
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
