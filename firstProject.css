@@ -378,6 +378,67 @@ svg:not(:root) {
     
 }
 
+/* cart popup */
+.cart_popup_wrapper  {
+    max-width: 800px;
+    margin: 0 auto;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    pointer-events: none;
+}
+.cart_popup {
+    height: 48px;
+    overflow: hidden;
+    z-index: 3;
+    -webkit-transition: -webkit-transform .25s ease;
+    transition: -webkit-transform .25s ease;
+    transition: transform .25s ease;
+    transition: transform .25s ease, -webkit-transform .25s ease;
+    will-change: transform;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+    contain: content;
+    position: relative;
+}
+.open_cart_popup {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+.cart_pop_btn {
+    height: 48px;
+    background: #1ba672;
+    color: #fff;
+    z-index: 2;
+    position: relative;
+    contain: content;
+    pointer-events: auto;
+    width: 100%;
+}
+.cart_span2 {
+    /* flex: 1; */
+    line-height: 1.2;
+    font-weight: 600;
+    font-size: 1rem;
+    display: block;
+}
+.cart_span2 {
+    /* text-transform: uppercase; */
+    font-size: 1.07rem;
+    font-weight: 600;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+.cart_popup_wrapper .cart_svg{
+    fill: white;
+}
+
 /* media query */
 @media (min-width: 961px) {
     .big_screen{
