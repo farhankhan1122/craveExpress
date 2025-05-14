@@ -31,6 +31,8 @@ const useBody = () => {
     // fetchData();
   }, []);
 
+  console.log(restaurantsListData,"restaurantlistdata..");
+
 //   const fetchData = async () => {
 //     const data = await fetch(
 //       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.8317525&lng=80.9225668&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
@@ -41,6 +43,8 @@ const useBody = () => {
 // };
 
 // return restaurantsListData;
+
+
 return { restaurantsListData, error };
 };
 
