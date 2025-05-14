@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-// import Shimmer from "./shimmer";
 import Shimmer from "./Shimmer?v=1";
 import useRestaurantMenu from "../utils.js/customHooks/useRestaurantMenu";
 import RestaurantCategory from "./RestaurantCategory";
@@ -12,6 +11,22 @@ const RestaurantMenu = () => {
   console.log(resInfo, "resInfo");
 
   if (resInfo === null) return <Shimmer />;
+
+
+
+//--------------------  Using Swiggy Api ------------------
+  // const {
+  //   name,
+  //   cuisines,
+  //   costForTwoMessage,
+  //   avgRatingString,
+  //   totalRatingsString,
+  //   areaName,
+  //   sla,
+  // } = resInfo?.cards[2]?.card?.card?.info;
+
+
+//--------------------  Using Static Data ------------------
   const {
     name,
     cuisines,
@@ -20,18 +35,28 @@ const RestaurantMenu = () => {
     totalRatingsString,
     areaName,
     sla,
-  } = resInfo?.cards[2]?.card?.card?.info;
-  const { itemCards } =
-    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
-  console.log(resInfo, "resInfo");
+  } = resInfo?.info;
 
-  const categories =
-    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
-      (c) =>
-        c.card?.card?.["@type"] ===
-        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
-    );
-  console.log(categories, "categories");
+
+
+
+  // const { itemCards } =
+  //   resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
+  // console.log(resInfo, "resInfo");
+
+
+//--------------------  Using Swiggy Api ------------------
+  // const categories =
+  //   resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+  //     (c) =>
+  //       c.card?.card?.["@type"] ===
+  //       "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+  //   );
+  // console.log(categories, "categoriesaqaqa");
+
+
+//--------------------  Using Static Data ------------------
+const categories = resInfo?.categories
 
   return (
     <div className="menu container">

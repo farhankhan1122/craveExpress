@@ -10,6 +10,7 @@ import UserContext from "../utils.js/userContext";
 import SearchBar from "./SearchBar";
 import Header from "./Header";
 import corsImage from "../../public/icons/cors-image.png";
+import useBodyMockData from "../utils.js/mockData2";
 
 const Body = () => {
   // local state variable - super powerful variable  scope is local
@@ -19,8 +20,12 @@ const Body = () => {
   const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
 
   // custom hooks
-  const {restaurantsListData, error} = useBody();
+  // const {restaurantsListData, error} = useBody();
+  const restaurantsListData = useBodyMockData;
   const onlineStatus = useOnlineStatus();
+
+  console.log(restaurantsListData, "qqqq");
+  
 
   const { loggedInUser, setUserName } = useContext(UserContext)
 
@@ -40,22 +45,22 @@ const Body = () => {
   // scope is local
   console.log(listOfRestaurants, "listOfRestaurants...");
 
-  if (error) {
-    console.log(error,"error")
-    return (
-      <div className="error-message">
-        <h3>⚠️ {error}</h3>
-        <a
-          href="https://chrome.google.com/webstore/detail/allow-cors-access-controll/lfhmikememgdcahcdlacilocejkmlioa"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          ➡️ Please Install CORS Extension
-          <img src={corsImage} alt="cors image" />
-        </a>
-      </div>
-    );
-  }
+  // if (error) {
+  //   console.log(error,"error")
+  //   return (
+  //     <div className="error-message">
+  //       <h3>⚠️ {error}</h3>
+  //       <a
+  //         href="https://chrome.google.com/webstore/detail/allow-cors-access-controll/lfhmikememgdcahcdlacilocejkmlioa"
+  //         target="_blank"
+  //         rel="noopener noreferrer"
+  //       >
+  //         ➡️ Please Install CORS Extension
+  //         <img src={corsImage} alt="cors image" />
+  //       </a>
+  //     </div>
+  //   );
+  // }
 
   if (listOfRestaurants?.length === 0) {
     return <Shimmer />;

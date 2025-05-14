@@ -5,6 +5,7 @@ import { useState, useEffect, useContext } from "react"
 import useBody from "../utils.js/customHooks/useBody";
 import useOnlineStatus from "../utils.js/customHooks/useOnlineStatus";
 import UserContext from "../utils.js/userContext";
+import useBodyMockData from "../utils.js/mockData2";
 
 export const SearchBar = ({ listOfRestaurants, setFilteredReastauants }) => {
 
@@ -51,7 +52,8 @@ export const SearchBar = ({ listOfRestaurants, setFilteredReastauants }) => {
     // const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
 
     // custom hooks
-    const restaurantsListData = useBody();
+    // const restaurantsListData = useBody();
+    const restaurantsListData = useBodyMockData;
     const onlineStatus = useOnlineStatus();
 
     const { loggedInUser, setUserName } = useContext(UserContext)
