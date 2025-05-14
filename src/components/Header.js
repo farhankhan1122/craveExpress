@@ -47,7 +47,7 @@ export const Header = ({ activeHeader }) => {
 
   return (
     <div
-      className={`fixed w-full flex items-center justify-between h-[80px] px-[20px] text-[18px] 
+      className={`mobile_head fixed w-full flex items-center justify-between h-[80px] px-[20px] text-[18px] 
       ${activeHeader ? "z-[10]" : "z-[5]"} 
       ${activeHeader && !isScrolled ? "text-white" : "text-black"} 
       ${isScrolled ? "bg-white shadow-custom" : "bg-transparent"}`}

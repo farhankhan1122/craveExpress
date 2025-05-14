@@ -9,7 +9,7 @@ const Footer = () => (
       <h3 className="font-extrabold text-[24px] tracking-[-0.6px] text-[#02060C] text-center px-[20px] pb-[10px]">
         For better experience,download the Swiggy app now
       </h3>
-      <div className="flex items-center gap-[10px]">
+      <div className="flex items-center gap-[10px] flex-wrap">
         <img
           className="h-[64px] max-w-[208px]"
           src={appStore}

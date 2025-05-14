@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 20,
+            "activePatchIndex": 28,
             "patches": [
                 {
                     "date": 1747217299233,
@@ -88,6 +88,38 @@
                 {
                     "date": 1747223680635,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -452,9 +452,9 @@\n     align-items: center;\r\n     -webkit-box-pack: center;\r\n     justify-content: center;\r\n     transition: 200ms ease-in-out;\r\n-    background: #02060c2e;\r\n+        background: #02060c6e;\r\n     opacity: 0;\r\n     display: none;\r\n     padding: 16px;\r\n }\r\n"
+                },
+                {
+                    "date": 1747223798959,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -615,5 +615,8 @@\n     }\r\n     .search {\r\n         padding-top: 30%;\r\n     }\r\n+    .mobile_header_item {\r\n+        width: 70px;\r\n+    }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1747223839239,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -599,8 +599,11 @@\n     }\r\n     .search {\r\n         padding-top: 20%;\r\n     }\r\n+    .mobile_header_item {\r\n+        width: 82px;\r\n+    }\r\n }\r\n \r\n @media (max-width: 480px) {\r\n     .res-card-link {\r\n"
+                },
+                {
+                    "date": 1747224040649,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -602,9 +602,12 @@\n     }\r\n     .mobile_header_item {\r\n         width: 82px;\r\n     }\r\n+    button.menu_icon {\r\n+    width: 50px;\r\n }\r\n+}\r\n \r\n @media (max-width: 480px) {\r\n     .res-card-link {\r\n         width: 45%;\r\n@@ -621,5 +624,8 @@\n     }\r\n     .mobile_header_item {\r\n         width: 70px;\r\n     }\r\n+    button.menu_icon, button.menu_icon svg {\r\n+    width: 30px;\r\n+}\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1747224209414,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -627,5 +627,9 @@\n     }\r\n     button.menu_icon, button.menu_icon svg {\r\n     width: 30px;\r\n }\r\n+.mobile_head {\r\n+    height: 50px;\r\n+    padding: 0 13px 0 8px;\r\n+}\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1747224288758,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -605,9 +605,12 @@\n     }\r\n     button.menu_icon {\r\n     width: 50px;\r\n }\r\n+.mobile_head {\r\n+    height: 50px;\r\n }\r\n+}\r\n \r\n @media (max-width: 480px) {\r\n     .res-card-link {\r\n         width: 45%;\r\n"
+                },
+                {
+                    "date": 1747224576284,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -594,9 +594,9 @@\n     .video {\r\n         height: 40dvh;\r\n     }\r\n     p.mobile_video_text {\r\n-        font-size: 35px;\r\n+        font-size: 27px;\r\n     }\r\n     .search {\r\n         padding-top: 20%;\r\n     }\r\n"
+                },
+                {
+                    "date": 1747224625836,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -622,9 +622,9 @@\n     p.mobile_video_text {\r\n         font-size: 23px;\r\n     }\r\n     .search {\r\n-        padding-top: 30%;\r\n+        padding-top: 56%;\r\n     }\r\n     .mobile_header_item {\r\n         width: 70px;\r\n     }\r\n"
+                },
+                {
+                    "date": 1747224865201,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -622,9 +622,9 @@\n     p.mobile_video_text {\r\n         font-size: 23px;\r\n     }\r\n     .search {\r\n-        padding-top: 56%;\r\n+        padding-top: 47%;\r\n     }\r\n     .mobile_header_item {\r\n         width: 70px;\r\n     }\r\n@@ -634,5 +634,10 @@\n .mobile_head {\r\n     height: 50px;\r\n     padding: 0 13px 0 8px;\r\n }\r\n+.submit_search, .search_input {\r\n+    border-radius: 8px;\r\n+    padding: 4px 20px 3px 20px;\r\n+    margin-top: -9px;\r\n+}\r\n }\n\\ No newline at end of file\n"
                 }
             ],
             "date": 1747217299233,
